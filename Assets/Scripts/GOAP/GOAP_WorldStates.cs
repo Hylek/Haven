@@ -5,18 +5,18 @@ using UnityEngine;
 // Written by Daniel Cumbor in 2020. Thanks Covid-19!
 
 [System.Serializable]
-public class WORLD_STATE
+public class InspectableState
 {
     public string key;
     public int value;
 }
 
 // Helper logic for handling GOAP's world states.
-public class GOAP_World_States
+public class GOAP_WorldStates
 {
     private Dictionary<string, int> states;
 
-    public GOAP_World_States()
+    public GOAP_WorldStates()
     {
         states = new Dictionary<string, int>();
     }

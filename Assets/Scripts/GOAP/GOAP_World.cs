@@ -8,14 +8,14 @@ using UnityEngine;
 public sealed class GOAP_World : MonoBehaviour
 {
     private static readonly GOAP_World singleton = new GOAP_World();
-    private static GOAP_World_States worldStates;
+    private static GOAP_WorldStates worldStates;
 
     static GOAP_World()
     {
-        worldStates = new GOAP_World_States();
+        worldStates = new GOAP_WorldStates();
     }
 
-    public GOAP_World_States getWorldStates()
+    public GOAP_WorldStates getWorldStates()
     {
         return worldStates;
     }
