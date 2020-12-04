@@ -11,7 +11,8 @@ public abstract class GOAP_BaseAction : MonoBehaviour
     public string actionName = "";
     public float actionCost = 0.0f;
     public float actionDuration = 0.0f;
-    public GameObject tag;
+    public string tagString;
+    public GameObject target;
     public NavMeshAgent agent;
     public GOAP_WorldStates agentStates;
     public bool isActionRunning = false;
@@ -29,6 +30,16 @@ public abstract class GOAP_BaseAction : MonoBehaviour
         consequences = new Dictionary<string, int>();
     }
 
+    public Dictionary<string, int> getPrerequisites()
+    {
+        return prerequisites;
+    }
+
+    public Dictionary<string, int> getConsequences()
+    {
+        return consequences;
+    }
+
     // Override to perform custom logic before action begins.
     public abstract bool onActionStart();
 
@@ -37,7 +48,7 @@ public abstract class GOAP_BaseAction : MonoBehaviour
 
     public void Awake()
     {
-        agent = this.gameObject.GetComponent<NavMeshAgent>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
 
         prerequisites = setupStateMap(inspectable_prerequisites);
         consequences = setupStateMap(inspectable_consequences);
