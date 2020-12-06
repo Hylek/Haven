@@ -8,7 +8,7 @@ public class Lumberjack : GOAP_Agent
     {
         base.Start();
 
-        GOAP_Goal idle = new GOAP_Goal("isIdle", 1, true);
+        GOAP_Goal idle = new GOAP_Goal("storeWood", 1, true);
         mainGoals.Add(idle, 1);
     }
 }

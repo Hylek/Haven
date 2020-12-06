@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lumberjack_Idle : GOAP_BaseAction
+public class LJ_GetAxe : GOAP_BaseAction
 {
     public override bool onActionStart()
     {

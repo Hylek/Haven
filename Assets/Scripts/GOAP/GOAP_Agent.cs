@@ -22,7 +22,7 @@ public class GOAP_Agent : MonoBehaviour
     public GOAP_BaseAction currentAction;
     private GOAP_Goal currentGoal;
 
-    private bool notBusy = false;
+    private bool isBusy = true;
 
     public void Start()
     {
@@ -41,10 +41,10 @@ public class GOAP_Agent : MonoBehaviour
         {
             if(atActionLocation())
             {
-                if (!notBusy)
+                if (isBusy)
                 {
                     Invoke("actionCompleted", currentAction.actionDuration);
-                    notBusy = true;
+                    isBusy = false;
                 }
             }
 
@@ -99,7 +99,7 @@ public class GOAP_Agent : MonoBehaviour
         currentAction.isActionRunning = false;
         currentAction.onActionComplete();
 
-        notBusy = true;
+        isBusy = true;
     }
 
     private bool currentlyExecutingPlan()
